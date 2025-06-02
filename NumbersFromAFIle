@@ -1,0 +1,48 @@
+
+import java.nio.file.Paths;
+import java.util.Scanner;
+import java.io.IOException;
+import java.util.ArrayList;
+
+
+public class NumbersFromAFile {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("File? ");
+        String file = scanner.nextLine();
+        System.out.print("Lower bound? ");
+        int lowerBound = Integer.valueOf(scanner.nextLine());
+        System.out.print("Upper bound? ");
+        int upperBound = Integer.valueOf(scanner.nextLine());
+        int counter = 0;
+        ArrayList<Integer> numList = new ArrayList();
+        try(Scanner filePath = new Scanner(Paths.get(file))){
+            while(filePath.hasNextLine()){
+                try{
+                    numList.add(Integer.valueOf(filePath.nextLine()));
+                    
+                    
+                }catch (NumberFormatException t){
+                    // do nothing but silently
+                    
+                }
+            }
+            
+            
+            
+        } catch (IOException e){
+            System.out.println("File not found");
+        }
+        
+        for (int num:numList){
+            if(num >= lowerBound && num<= upperBound){
+                counter ++;
+            }
+        }
+        System.out.println("Numbers: " + counter);
+
+    }
+
+}
