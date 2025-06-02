@@ -1,0 +1,50 @@
+
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.io.IOException;
+
+public class GuestListFromAFile {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Name of the file:");
+        String file = scanner.nextLine();
+
+        ArrayList<String> guestList = new ArrayList<>();
+        // implement reading the file here.
+        
+        try(Scanner fileSearch = new Scanner(Paths.get(file))){
+        System.out.println("");
+
+            while (fileSearch.hasNextLine()) {
+                guestList.add(fileSearch.nextLine());
+            }
+            
+            while(true){
+                System.out.println("Enter names, an empty line quits.");
+                String name = scanner.nextLine();
+                if(name.isEmpty()){
+                    break;
+                }
+                
+                boolean found = false;
+                for (String guest : guestList) {
+                    if (guest.contains(name)) {
+                        found = true;
+                        break;
+                    }
+                }
+                if (found) {
+                    System.out.println("The name is on the list.");
+                } else {
+                    System.out.println("The name is not on the list.");
+                }
+            } System.out.println("Thank you!");
+        } catch (IOException e){
+            System.out.println("File does not exist");
+        }
+    }
+}
+
