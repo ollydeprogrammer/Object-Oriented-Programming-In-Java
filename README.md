@@ -1,1 +1,1 @@
- Java programmes, beginning this course and programming language on the 26th May 2025. I am uploading programmes to showcase my ability to learn a new programming language quickly (due to my understanding of computer theory) and problem solve at pace. Might slow down when I stop my hyperfocus/ have to go outside. 
+Started Programming in Java for fun in my time off, Started all of the code are projects from the University of Helsinki Java Programmming Course. Steered away from using AI.
